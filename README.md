@@ -1,8 +1,9 @@
 # 3arthh4ck Plugins
 <!-- Add an intro -->
+[![](https://discordapp.com/api/guilds/1065633124366688298/widget.png?style=shield)](https://discord.gg/ByCCxHcX8U)
 ## Plugin list
 
-- **FutureGUI**: A recreation of the Future Client new GUI
+- [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new Gui
 
 ## Getting Started
 
