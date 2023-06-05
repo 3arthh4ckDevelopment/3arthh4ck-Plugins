@@ -2,11 +2,12 @@ package me.earth.futuregui.gui.components.buttons;
 
 import me.earth.earthhack.api.setting.settings.StringSetting;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
-import me.earth.futuregui.FutureTextManager;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.math.StopWatch;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.futuregui.gui.FutureGui;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.ChatAllowedCharacters;
@@ -32,11 +33,11 @@ public class StringButton extends Button
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        FutureRenderUtil.drawRect(x, y, x + width + 7.4F, y + height - 0.5f, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
+        Render2DUtil.drawRect(x, y, x + width + 7.4F, y + height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
         if(isListening)
-            FutureTextManager.getInstance().drawStringWithShadow(currentString.getString() + FutureTextManager.getInstance().getIdleSign(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
+            Managers.TEXT.drawStringWithShadow(currentString.getString() + getIdleSign(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
         else
-            FutureTextManager.getInstance().drawStringWithShadow((/*setting.shouldRenderName() ? setting.getName() + " " + TextColor.GRAY :*/ "") + setting.getValue(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
+            Managers.TEXT.drawStringWithShadow((/*setting.shouldRenderName() ? setting.getName() + " " + TextColor.GRAY :*/ "") + setting.getValue(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
     }
 
     @Override
@@ -136,6 +137,19 @@ public class StringButton extends Button
         {
             return this.string;
         }
+    }
+
+    private final StopWatch idleTimer = new StopWatch();
+    private boolean idling;
+    public String getIdleSign()
+    {
+        if(idleTimer.passed(500))
+        {
+            idling = !idling;
+            idleTimer.reset();
+        }
+
+        return idling ? "_" : "";
     }
 
 }

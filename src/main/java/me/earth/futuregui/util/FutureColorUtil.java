@@ -118,6 +118,10 @@ public class FutureColorUtil
         return color.getRGB();
     }
 
+    public static void glColor(Color color) {
+        GL11.glColor4f(((float)color.getRed() / 255.0f), ((float)color.getGreen() / 255.0f), ((float)color.getBlue() / 255.0f), ((float)color.getAlpha() / 255.0f));
+    }
+
     public static Color setAlpha(Color color, int alpha) {
         alpha = MathHelper.clamp(alpha, 0, 255);
         return new Color(color.getRed(), color.getGreen(), color.getBlue(), alpha);

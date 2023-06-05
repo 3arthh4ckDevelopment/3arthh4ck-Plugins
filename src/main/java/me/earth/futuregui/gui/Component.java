@@ -1,11 +1,11 @@
 package me.earth.futuregui.gui;
 
 import me.earth.earthhack.api.util.interfaces.Globals;
-import me.earth.futuregui.FutureTextManager;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.gui.components.Item;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GlStateManager;
@@ -63,11 +63,11 @@ public class Component implements Globals
     {
 
         float totalItemHeight = this.open ? this.getTotalItemHeight() - 2.0f : 0.0f;
-        FutureRenderUtil.drawRect(x,  y - 1.5f, x + width,  y + height - 6, FutureColorUtil.getClientColorCustomAlpha(220));
+        Render2DUtil.drawRect(x,  y - 1.5f, x + width,  y + height - 6, FutureColorUtil.getClientColorCustomAlpha(220));
         if (open) {
-            FutureRenderUtil.drawRect(x, y + 12.5f, x + width, (y + height) + totalItemHeight, 0x77000000);
+            Render2DUtil.drawRect(x, y + 12.5f, x + width, (y + height) + totalItemHeight, 0x77000000);
         }
-        FutureTextManager.getInstance().drawStringWithShadow(name, x + 3.0f, y + 1.5f/* - 4.0f*/, -1); //15592941
+        Managers.TEXT.drawStringWithShadow(name, x + 3.0f, y + 1.5f/* - 4.0f*/, -1); //15592941
 
         if (!open) {
             if (this.angle > 0) {
@@ -79,11 +79,11 @@ public class Component implements Globals
 
         GlStateManager.pushMatrix();
         GlStateManager.enableBlend();
-        FutureRenderUtil.glColor(new Color(255, 255, 255, 255));
-        minecraft.getTextureManager().bindTexture(new ResourceLocation("textures/exeter/arrow.png"));
+        FutureColorUtil.glColor(new Color(255, 255, 255, 255));
+        minecraft.getTextureManager().bindTexture(new ResourceLocation("textures/future/arrow.png"));
         GlStateManager.translate(getX() + getWidth() - 7.0f, (getY() + 6) - 0.3F, 0.0F);
         GlStateManager.rotate(calculateRotation(angle), 0.0F, 0.0F, 1.0F);
-        FutureRenderUtil.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
+        FutureGui.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
         GlStateManager.disableBlend();
         GlStateManager.popMatrix();
 
@@ -96,8 +96,6 @@ public class Component implements Globals
                 y += item.getHeight() + 1.5f;
             }
         }
-
-
 
     }
 

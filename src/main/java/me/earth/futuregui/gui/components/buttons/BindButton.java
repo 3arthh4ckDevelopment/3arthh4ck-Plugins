@@ -3,12 +3,12 @@ package me.earth.futuregui.gui.components.buttons;
 import me.earth.earthhack.api.setting.settings.BindSetting;
 import me.earth.earthhack.api.util.bind.Bind;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.earthhack.impl.util.text.TextColor;
-import me.earth.futuregui.FutureTextManager;
 import me.earth.futuregui.gui.FutureGui;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 
@@ -27,14 +27,14 @@ public class BindButton extends Button
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        FutureRenderUtil.drawRect(x, y, x + width + 7.4f, y + height - 0.5f, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
+        Render2DUtil.drawRect(x, y, x + width + 7.4f, y + height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
         if (isListening)
         {
-            FutureTextManager.getInstance().drawStringWithShadow("Listening...", x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
+            Managers.TEXT.drawStringWithShadow("Listening...", x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
         }
         else
         {
-            FutureTextManager.getInstance().drawStringWithShadow(setting.getName() + " " + TextColor.GRAY + setting.getValue(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
+            Managers.TEXT.drawStringWithShadow(setting.getName() + " " + TextColor.GRAY + setting.getValue(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
         }
     }
 

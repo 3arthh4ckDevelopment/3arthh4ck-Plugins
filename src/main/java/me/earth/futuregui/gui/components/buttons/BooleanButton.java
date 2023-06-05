@@ -2,10 +2,10 @@ package me.earth.futuregui.gui.components.buttons;
 
 import me.earth.earthhack.api.setting.Setting;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
-import me.earth.futuregui.FutureTextManager;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 
@@ -23,8 +23,8 @@ public class BooleanButton extends Button
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        FutureRenderUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(230));
-        FutureTextManager.getInstance().drawStringWithShadow(getName(), x + 2.0f, y + 4.0f, getState() ? -1 : -5592406);
+        Render2DUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? 0x11555555 : 0x88555555);
+        Managers.TEXT.drawStringWithShadow(getName(), x + 2.0f, y + 4.0f, getState() ? -1 : -5592406);
     }
 
     @Override

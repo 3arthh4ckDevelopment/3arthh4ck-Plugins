@@ -20,7 +20,5 @@ public class FutureGui implements Plugin {
         } catch (AlreadyRegisteredException e) {
             e.printStackTrace();
         }
-
-        Bus.EVENT_BUS.subscribe(FutureTextManager.getInstance());
     }
 }

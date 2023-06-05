@@ -1,4 +1,5 @@
 {
     "name": "FutureGui",
-    "mainClass": "me.earth.futuregui.FutureGui"
+    "mainClass": "me.earth.futuregui.FutureGui",
+    "mixinConfig": null
 }

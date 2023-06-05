@@ -2,10 +2,15 @@ package me.earth.futuregui.gui.components.buttons;
 
 import me.earth.earthhack.api.module.Module;
 import me.earth.earthhack.api.setting.Setting;
-import me.earth.earthhack.api.setting.settings.*;
+import me.earth.earthhack.api.setting.settings.BindSetting;
+import me.earth.earthhack.api.setting.settings.BooleanSetting;
+import me.earth.earthhack.api.setting.settings.EnumSetting;
+import me.earth.earthhack.api.setting.settings.NumberSetting;
+import me.earth.earthhack.api.setting.settings.StringSetting;
+import me.earth.futuregui.FutureGuiModule;
+import me.earth.futuregui.gui.FutureGui;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.gui.components.Item;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.renderer.GlStateManager;
@@ -28,8 +33,12 @@ public class ModuleButton extends Button
     {
         super(module.getName());
         this.module = module;
+        initSettings();
         this.progress = 0;
+    }
 
+    public void initSettings()
+    {
         List<Item> newItems = new ArrayList<>();
         if (!this.module.getSettings().isEmpty())
         {
@@ -69,30 +78,36 @@ public class ModuleButton extends Button
         this.settings.addAll(newItems);
     }
 
-
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         super.drawScreen(mouseX, mouseY, partialTicks);
-
-        if (!this.settings.isEmpty()) {
+        if (!this.settings.isEmpty())
+        {
+            FutureGuiModule gui = FutureGuiModule.getInstance();
             GlStateManager.pushMatrix();
             GlStateManager.enableBlend();
-            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/exeter/gear.png"));
+            Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation("textures/future/gear.png"));
             GlStateManager.translate(getX() + getWidth() - 6.7F, getY() + 7.7F - 0.3F, 0.0F);
             GlStateManager.rotate(calculateRotation((float) progress), 0.0F, 0.0F, 1.0F);
-            FutureRenderUtil.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
+            FutureGui.drawModalRect(-5, -5, 0.0F, 0.0F, 10, 10, 10, 10, 10.0F, 10.0F);
             GlStateManager.disableBlend();
-            GlStateManager.popMatrix();
-
-            if (this.subOpen) {
-                float height = 1.0f;
+            GlStateManager.popMatrix();            if (subOpen)
+            {
+                float height = 1;
                 ++progress;
-                for (Item item : settings) {
-                    item.setLocation(x + 1.0f, y + (height += 15.0f));
-                    item.setHeight(15);
-                    item.setWidth(width - 9);
-                    item.drawScreen(mouseX, mouseY, partialTicks);
+                for (Item item : this.settings)
+                {
+                    if(item.isHidden())
+                    {
+                        height += 15F;
+                        item.setLocation(x + 1, y + height);
+                        item.setHeight(15);
+                        item.setWidth(width - 9);
+                        item.drawScreen(mouseX, mouseY, partialTicks);
+                    }
+
+                    item.update();
                 }
             }
         }
@@ -102,7 +117,7 @@ public class ModuleButton extends Button
     public void mouseClicked(int mouseX, int mouseY, int mouseButton)
     {
         super.mouseClicked(mouseX, mouseY, mouseButton);
-        if (!settings.isEmpty())
+        if (!this.settings.isEmpty())
         {
             if (mouseButton == 1 && isHovering(mouseX, mouseY))
             {
@@ -112,7 +127,7 @@ public class ModuleButton extends Button
 
             if (subOpen)
             {
-                for (Item item : settings)
+                for (Item item : this.settings)
                 {
                     if (item.isHidden())
                     {
@@ -145,7 +160,7 @@ public class ModuleButton extends Button
         if (subOpen)
         {
             int height = 14;
-            for (Item item : settings)
+            for (Item item : this.settings)
             {
                 if (item.isHidden())
                 {
@@ -159,6 +174,11 @@ public class ModuleButton extends Button
         {
             return 14;
         }
+    }
+
+    public Module getModule()
+    {
+        return this.module;
     }
 
     @Override

@@ -3,12 +3,12 @@ package me.earth.futuregui.gui.components.buttons;
 import me.earth.earthhack.api.setting.settings.EnumSetting;
 import me.earth.earthhack.api.util.EnumHelper;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.earthhack.impl.util.text.TextColor;
-import me.earth.futuregui.FutureTextManager;
 import me.earth.futuregui.gui.FutureGui;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 
@@ -26,8 +26,8 @@ public class EnumButton<E extends Enum<E>> extends Button
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        FutureRenderUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
-        FutureTextManager.getInstance().drawStringWithShadow(setting.getName() + " " + TextColor.GRAY + setting.getValue().name(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
+        Render2DUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130));
+        Managers.TEXT.drawStringWithShadow(setting.getName() + " " + TextColor.GRAY + setting.getValue().name(), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), getState() ? 0xFFFFFFFF : 0xFFAAAAAA);
     }
 
     @Override

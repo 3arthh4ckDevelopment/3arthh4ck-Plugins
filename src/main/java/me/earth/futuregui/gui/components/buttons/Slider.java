@@ -2,13 +2,13 @@ package me.earth.futuregui.gui.components.buttons;
 
 import me.earth.earthhack.api.setting.settings.NumberSetting;
 import me.earth.earthhack.impl.gui.visibility.Visibilities;
+import me.earth.earthhack.impl.managers.Managers;
+import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.earthhack.impl.util.text.TextColor;
-import me.earth.futuregui.FutureTextManager;
 import me.earth.futuregui.gui.Component;
 import me.earth.futuregui.gui.FutureGui;
 import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
-import me.earth.futuregui.util.FutureRenderUtil;
 import org.lwjgl.input.Mouse;
 
 public class Slider<N extends Number> extends Button
@@ -33,9 +33,9 @@ public class Slider<N extends Number> extends Button
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         dragSetting(mouseX, mouseY);
-        FutureRenderUtil.drawRect(x, y, x + width + 7.4F, y + height - 0.5f, !isHovering(mouseX, mouseY) ? 0x11555555 : 0x88555555);
-        FutureRenderUtil.drawRect(x, y, (setting.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height - 0.5f, !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(170) : FutureColorUtil.getClientColorCustomAlpha(230));
-        FutureTextManager.getInstance().drawStringWithShadow(getName() + " " + TextColor.GRAY + (setting.getValue() instanceof Float ? (setting.getValue()) : (setting.getValue()).doubleValue()), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), 0xFFFFFFFF);
+        Render2DUtil.drawRect(x, y, x + width + 7.4F, y + height, !isHovering(mouseX, mouseY) ? 0x11555555  : 0x88555555);
+        Render2DUtil.drawRect(x, y, (setting.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height, !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170));
+        Managers.TEXT.drawStringWithShadow(getName() + " " + TextColor.GRAY + (setting.getValue() instanceof Float ? (setting.getValue()) : (setting.getValue()).doubleValue()), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), 0xFFFFFFFF);
     }
 
     @Override

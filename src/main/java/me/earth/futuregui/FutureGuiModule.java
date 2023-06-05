@@ -12,11 +12,11 @@ public class FutureGuiModule extends Module
 {
     private static final FutureGuiModule INSTANCE = new FutureGuiModule();
     public Setting<Integer> hue =
-            register(new NumberSetting<>("Hue",0, 0,360));
+            register(new NumberSetting<>("Hue",100, 0,360));
     public Setting<Integer> saturation =
-            register(new NumberSetting<>("Saturation",100, 0,100));
+            register(new NumberSetting<>("Saturation",90, 0,100));
     public Setting<Integer> lightness =
-            register(new NumberSetting<>("Lightness",50, 0,100));
+            register(new NumberSetting<>("Lightness",45, 0,100));
 
 
     public FutureGuiModule()

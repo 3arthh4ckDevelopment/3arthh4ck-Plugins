@@ -5,6 +5,7 @@ import me.earth.earthhack.impl.managers.Managers;
 import me.earth.earthhack.impl.util.render.Render2DUtil;
 import me.earth.futuregui.gui.components.Item;
 import me.earth.futuregui.gui.components.buttons.ModuleButton;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 import org.lwjgl.input.Mouse;
@@ -119,6 +120,10 @@ public class FutureGui extends GuiScreen
     public int getTextOffset()
     {
         return -6;
+    }
+
+    public static void drawModalRect(int var0, int var1, float var2, float var3, int var4, int var5, int var6, int var7, float var8, float var9) {
+        Gui.drawScaledCustomSizeModalRect(var0, var1, var2, var3, var4, var5, var6, var7, var8, var9);
     }
 
 }
