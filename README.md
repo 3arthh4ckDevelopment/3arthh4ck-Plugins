@@ -6,8 +6,8 @@ The new Future Gui, but in 3arthh4ck
 
 ## Images
 
-![3arthhack with the FutureGui Plugin](https://media.discordapp.net/attachments/1095795845175185470/1114980842335375470/image.png?width=1153&height=675)
-![Future Client and FutureGui Plugin comparison](https://media.discordapp.net/attachments/971826517191569508/1110636308562452550/image.png?width=1243&height=675)
+![3arthhack with the FutureGui Plugin](https://media.discordapp.net/attachments/1097210568575819987/1115888227845423135/image1.jpg?width=1179&height=663)
+![Future Client and FutureGui Plugin comparison](https://media.discordapp.net/attachments/1097210568575819987/1115888228281626654/image2.jpg?width=1179&height=663)
 
 ## Usage
 
