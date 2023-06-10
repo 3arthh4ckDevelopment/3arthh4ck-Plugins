@@ -1,22 +1,21 @@
-# 3arthh4ck Plugins
-<!-- Add an intro -->
-[![](https://discordapp.com/api/guilds/1065633124366688298/widget.png?style=shield)](https://discord.gg/ByCCxHcX8U)
-## Plugin list
+# PhobosGui Plugin
 
-- [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new Gui
+## Description
 
-## Getting Started
+Working PhobosGui plugin
 
-To get started with the 3arthh4ck Plugins, follow these simple steps:
+## Images
 
-1. **Preparation**: Build and download the plugin
-2. **Plugin Setup**: Navigate to .minecraft>3arthh4ck>plugins and add your plugin here.
+![3arthhack with the PhobosGui Plugin](https://media.discordapp.net/attachments/1102373040861491272/1117052249894555678/2023-06-10_13.18.52.png?width=777&height=675)
+## Usage
 
-## Contributing
+- Load it into 3arthh4ck and click the module
 
-We welcome contributions from the community to improve and add 3arthh4ck plugins. If you have any ideas, bug fixes, or new features to propose, please follow these guidelines:
+## Todo
 
-1. Fork this repository.
-2. Create a new branch for your new plugin, feature or bug fix.
-3. Commit your changes and push them.
-4. Submit a pull request, explaining the changes you've made and their benefits.
+- Make the colors work as the original Phobos Gui
+
+## Credits and Author
+
+Original plugin https://github.com/3arthqu4ke/3arthh4ck/tree/plugins/phobosgui made by [@3arthqu4ke](https://github.com/3arthqu4ke)<br>
+I just fixed the config file

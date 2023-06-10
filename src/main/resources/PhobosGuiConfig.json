@@ -1,0 +1,5 @@
+{
+  "name": "PhobosGuiPlugin",
+  "mainClass": "me.earth.plugins.phobosgui.GuiPlugin",
+  "mixinConfig": null
+}
