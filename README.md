@@ -1,22 +1,22 @@
-# 3arthh4ck Plugins
-<!-- Add an intro -->
-[![](https://discordapp.com/api/guilds/1065633124366688298/widget.png?style=shield)](https://discord.gg/ByCCxHcX8U)
-## Plugin list
+# HitBox Desync Plugin
 
-- [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new Gui
+## Description
 
-## Getting Started
+Mio Client HitBox Desync exploit
 
-To get started with the 3arthh4ck Plugins, follow these simple steps:
+## Images
 
-1. **Preparation**: Build and download the plugin
-2. **Plugin Setup**: Navigate to .minecraft>3arthh4ck>plugins and add your plugin here.
+![3arthhack with the FutureGui Plugin](https://media.discordapp.net/attachments/1047860003899457657/1114997507215347712/azumanga-daioh-azumanga.gif?width=704&height=525)
 
-## Contributing
+## Usage
 
-We welcome contributions from the community to improve and add 3arthh4ck plugins. If you have any ideas, bug fixes, or new features to propose, please follow these guidelines:
+- Load it into 3arthh4ck and click the module
 
-1. Fork this repository.
-2. Create a new branch for your new plugin, feature or bug fix.
-3. Commit your changes and push them.
-4. Submit a pull request, explaining the changes you've made and their benefits.
+## Todo
+
+- Make it work?? xd
+
+## Credits and Author
+
+Original exploit https://github.com/mioclient/hitbox-desync <br>
+Plugin made by [@Ai2473](https://github.com/Ai2473)
