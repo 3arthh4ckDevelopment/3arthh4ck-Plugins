@@ -22,7 +22,9 @@ buildscript {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = '0.9.2'
+version = "0.9.2"
+group = "me.earth" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "FutureGui-Plugin"
 
 sourceCompatibility = targetCompatibility = '1.8'
 compileJava {
@@ -52,7 +54,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly('com.github.3arthqu4ke:3arthh4ck:1.7.7') {
+    compileOnly('com.github.3arthqu4ke:3arthh4ck:1.8.5') {
         exclude module: 'mixin'
     }
 }
@@ -69,7 +71,7 @@ task copyJar(type: Copy, dependsOn: jar) {
 jar {
     manifest {
         attributes(
-            '3arthh4ckConfig': 'FutureGUIPluginConfig.json'
+                '3arthh4ckConfig': 'FutureGUIPluginConfig.json'
         )
     }
     finalizedBy(copyJar)
