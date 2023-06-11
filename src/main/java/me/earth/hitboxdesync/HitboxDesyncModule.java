@@ -7,6 +7,7 @@ import me.earth.earthhack.impl.event.events.misc.TickEvent;
 import me.earth.earthhack.impl.util.client.SimpleData;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
     /**
@@ -32,11 +33,11 @@ public class HitboxDesyncModule extends Module {
                 Vec3d center = bb.getCenter();
                 Vec3d offset = new Vec3d(f.getDirectionVec());
 
-                Vec3d fin = merge(new Vec3d(center.x, center.y, center.z).add(0.5, 0, 0.5).add(offset.scale(MAGIC_OFFSET)), f);
-                mc.player.setPosition(
+                Vec3d fin = merge(new Vec3d(new BlockPos(center)).add(.5, 0, .5).add(offset.scale(MAGIC_OFFSET)), f);
+                mc.player.setPositionAndUpdate(
                         fin.x == 0 ? mc.player.posX : fin.x,
                         mc.player.posY,
-                        fin.z == 0 ? mc.player.posY : fin.z);
+                        fin.z == 0 ? mc.player.posZ : fin.z);
                 disable();
             }
 
