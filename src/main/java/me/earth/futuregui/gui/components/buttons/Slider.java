@@ -11,6 +11,8 @@ import me.earth.futuregui.gui.components.Button;
 import me.earth.futuregui.util.FutureColorUtil;
 import org.lwjgl.input.Mouse;
 
+import static me.earth.futuregui.util.FutureColorUtil.RGBtoHEXColor;
+
 public class Slider<N extends Number> extends Button
 {
 
@@ -33,7 +35,7 @@ public class Slider<N extends Number> extends Button
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
         dragSetting(mouseX, mouseY);
-        Render2DUtil.drawRect(x, y, x + width + 7.4F, y + height, !isHovering(mouseX, mouseY) ? 0x11555555  : 0x88555555);
+        Render2DUtil.drawRect(x, y, x + width + 7.4F, y + height, !isHovering(mouseX, mouseY) ? RGBtoHEXColor(0, 0, 0, 90)  : RGBtoHEXColor(85, 85, 85, 130));
         Render2DUtil.drawRect(x, y, (setting.getValue()).floatValue() <= min.floatValue() ? x : x + (width + 7.4F) * partialMultiplier(), y + height, !isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170));
         Managers.TEXT.drawStringWithShadow(getName() + " " + TextColor.GRAY + (setting.getValue() instanceof Float ? (setting.getValue()) : (setting.getValue()).doubleValue()), x + 2.3F, y - 1.7F - FutureGui.getInstance().getTextOffset(), 0xFFFFFFFF);
     }

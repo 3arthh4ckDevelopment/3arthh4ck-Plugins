@@ -9,6 +9,8 @@ import me.earth.futuregui.util.FutureColorUtil;
 import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.init.SoundEvents;
 
+import static me.earth.futuregui.util.FutureColorUtil.RGBtoHEXColor;
+
 public class BooleanButton extends Button
 {
     private final Setting<Boolean> setting;
@@ -23,7 +25,7 @@ public class BooleanButton extends Button
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        Render2DUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? 0x11555555 : 0x88555555);
+        Render2DUtil.drawRect(x, y, x + (float) width + 7.4f, y + (float) height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(230) : FutureColorUtil.getClientColorCustomAlpha(170)) : !isHovering(mouseX, mouseY) ? RGBtoHEXColor(0, 0, 0, 90)  : RGBtoHEXColor(85, 85, 85, 130));
         Managers.TEXT.drawStringWithShadow(getName(), x + 2.0f, y + 4.0f, getState() ? -1 : -5592406);
     }
 

@@ -22,7 +22,7 @@ public class Button extends Item
     @Override
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        Render2DUtil.drawRect(x, y, x + width, y + height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(240) : FutureColorUtil.getClientColorCustomAlpha(215)) : (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130)));
+        Render2DUtil.drawRect(x, y, x + width, y + height, getState() ? (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(245) : FutureColorUtil.getClientColorCustomAlpha(215)) : (!isHovering(mouseX, mouseY) ? FutureColorUtil.getClientColorCustomAlpha(60) : FutureColorUtil.getClientColorCustomAlpha(130)));
         Managers.TEXT.drawStringWithShadow(getName(), x + 2.0f, y + 4.0f, getState() ? -1 : -5592406);
     }
 
