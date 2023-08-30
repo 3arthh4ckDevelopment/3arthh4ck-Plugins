@@ -1,24 +1,22 @@
-# 3arthh4ck Plugins
-<!-- Add an intro -->
-[![](https://discordapp.com/api/guilds/1065633124366688298/widget.png?style=shield)](https://discord.gg/ByCCxHcX8U)
-## Plugin list
+# Auto32k Plugin
 
-- [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new gui
-- [**PhobosGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/PhobosGui): The Phobos Gui
-- [**HitboxDesync**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/HitboxDesync): HitBox Desync exploit
+## Description
 
-## Getting Started
+This plugin adds a lot of 32k Modules from [Guinness Client](https://github.com/The-Gopro336-Archive/Guinness-Deobf/) and Phobos 32k Criticals
 
-To use a plugin, follow these steps:
+## Usage
 
-1. **Preparation**: Download and build the plugin
-2. **Plugin Setup**: Navigate to .minecraft>earthhack>plugins and add your plugin here.
+- Have 32k shulkers (pvp.8b8t.me) and turn on the modules as needed
 
-## Contributing
+## Todo
 
-We welcome contributions to improve and add earthhack plugins. If you have any ideas, bug fixes, or new features to propose, please follow these guidelines:
+- Decode all obfed numbers
+- Merge Modules
+- Make chat better
+- Fix NewAuto32k secretclose closing everything when dying while placing
 
-1. Fork this repository.
-2. Create a new branch for your new plugin, feature or bug fix.
-3. Commit your changes and push them.
-4. Submit a pull request, explaining the changes you've made.
+## Credits and Author
+
+The plugin was developed by [@Ai2473](https://github.com/Ai2473). Idea by [@Zane2b2t](https://github.com/Zane2b2t)
+
+Thanks to [@Gopro336](https://github.com/Gopro336-2) for the Guinness 1.12.2 client https://github.com/The-Gopro336-Archive/Guinness-Deobf/
