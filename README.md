@@ -6,6 +6,7 @@
 - [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new gui
 - [**PhobosGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/PhobosGui): The Phobos Gui
 - [**HitboxDesync**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/HitboxDesync): HitBox Desync exploit
+- [**Auto32k**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/Auto32k): Guinness Auto32k modules
 
 ## Getting Started
 
