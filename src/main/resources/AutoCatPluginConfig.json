@@ -1,0 +1,5 @@
+{
+    "name": "AutoCat",
+    "mainClass": "me.earth.autocat.AutoCat",
+    "mixinConfig": null
+}
