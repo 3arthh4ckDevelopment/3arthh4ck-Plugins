@@ -10,4 +10,4 @@ Sends cat facts in the chat
 
 ## Credits and Author
 
-The plugin was developed by [@Ai2473](https://github.com/Ai2473). Idea by [@QueenElle](https://github.com/queenellee)
+The plugin was developed by [@Ai2473](https://github.com/Ai2473). Idea by [@Queenelle](https://github.com/queenellee)
