@@ -7,6 +7,8 @@
 - [**PhobosGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/PhobosGui): The Phobos Gui
 - [**HitboxDesync**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/HitboxDesync): HitBox Desync exploit
 - [**Auto32k**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/Auto32k): Guinness Auto32k modules
+- [**AutoCat**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/AutoCat): Cat facts spammer
+- [**MioClientGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/MioClientGui): The 1.12.2 Mio Client Gui
 
 ## Getting Started
 
