@@ -1,25 +1,25 @@
-# 3arthh4ck Plugins
-<!-- Add an intro -->
-[![](https://discordapp.com/api/guilds/1065633124366688298/widget.png?style=shield)](https://discord.gg/ByCCxHcX8U)
-## Plugin list
+# MioClient Gui Plugin
 
-- [**FutureGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/FutureGui): A recreation of the Future Client new gui
-- [**PhobosGui**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/PhobosGui): The Phobos Gui
-- [**HitboxDesync**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/HitboxDesync): HitBox Desync exploit
-- [**Auto32k**](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/Auto32k): Guinness Auto32k modules
+## Description
 
-## Getting Started
+The 1.12.2 Mio Client Gui, but in 3arthh4ck!
 
-To use a plugin, follow these steps:
+## Images
 
-1. **Preparation**: Download and build the plugin
-2. **Plugin Setup**: Navigate to .minecraft>earthhack>plugins and add your plugin here.
+![Mio ClickGui in 3arthh4ck](https://media.discordapp.net/attachments/1075415497136406628/1162128317433008149/image.png?ex=65567ed6&is=654409d6&hm=e141158b6a68d5d00f894672a5fa10932e23baf9e014133b89cdc1800a984e2f&=&width=1606&height=903)
+![An other picture taken using the future mode](https://media.discordapp.net/attachments/1075415497136406628/1170052157878309015/image.png?ex=6557a2fc&is=65452dfc&hm=13799f0a73237224415ea39827208449c29c36e1ea7ff67f15cf3708888a4964&=&width=1606&height=903)
+## Usage
 
-## Contributing
+- Just load it into 3arthh4ck and click the module. 
+- NOTE: Use [this](https://github.com/3arthh4ckDevelopment/3arthh4ck-Client/actions/runs/6474102582) version or [above](https://github.com/3arthh4ckDevelopment/3arthh4ck-Client/tree/dev)!
 
-We welcome contributions to improve and add earthhack plugins. If you have any ideas, bug fixes, or new features to propose, please follow these guidelines:
+## Todo
 
-1. Fork this repository.
-2. Create a new branch for your new plugin, feature or bug fix.
-3. Commit your changes and push them.
-4. Submit a pull request, explaining the changes you've made.
+- Page settings
+- List settings
+- Hud editor compatibility
+
+## Credits and Author
+
+The plugin was developed by [@Ai2473](https://github.com/Ai2473).<br>
+This is based on the 1.12.2 Mio Client Gui that was made by [@Asphyxia1337](https://github.com/asphyxia1337) and [@Cattyn](https://github.com/cattyngmd)
