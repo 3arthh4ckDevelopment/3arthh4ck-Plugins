@@ -1,5 +1,5 @@
 # eclipse
-bin
+/bin/
 *.launch
 .settings
 .metadata
@@ -7,14 +7,15 @@ bin
 .project
 
 # idea
-out
+/out/
 *.ipr
 *.iws
 *.iml
-.idea
+/.idea/
 
 # gradle
-build
+/run/
+/build/
 .gradle
 
 # other

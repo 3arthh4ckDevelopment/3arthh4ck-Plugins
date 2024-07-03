@@ -1,0 +1,5 @@
+{
+    "name": "MioGui",
+    "mainClass": "me.earth.miogui.MioGui",
+    "mixinConfig": null
+}

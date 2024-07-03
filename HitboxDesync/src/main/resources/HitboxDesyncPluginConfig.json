@@ -1,0 +1,5 @@
+{
+    "name": "HitboxDesync",
+    "mainClass": "me.earth.hitboxdesync.HitboxDesync",
+    "mixinConfig": null
+}

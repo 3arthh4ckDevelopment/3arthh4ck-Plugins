@@ -1,0 +1,78 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            name = 'forge'
+            url = 'https://files.minecraftforge.net/maven'
+        }
+        maven {
+            name = 'SpongePowered'
+            url = 'https://repo.spongepowered.org/maven'
+        }
+        maven {
+            name = "jitpack.io"
+            url = "https://jitpack.io"
+        }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "0.9.2"
+group = "me.earth" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "FutureGui-Plugin"
+
+sourceCompatibility = targetCompatibility = '1.8'
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = '1.12.2-14.23.5.2768'
+    runDir = 'run'
+    mappings = 'stable_39'
+    makeObfSourceJar = false
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spongepowered-repo'
+        url = 'https://repo.spongepowered.org/maven/'
+    }
+
+    maven {
+        name = "jitpack.io"
+        url  = "https://jitpack.io"
+    }
+
+    jcenter()
+}
+
+dependencies {
+    compileOnly('com.github.3arthqu4ke:3arthh4ck:1.8.5') {
+        exclude module: 'mixin'
+    }
+}
+
+classes {
+    finalizedBy(jar)
+}
+
+task copyJar(type: Copy, dependsOn: jar) {
+    from(jar)
+    into project.file('run/earthhack/plugins')
+}
+
+jar {
+    manifest {
+        attributes(
+                '3arthh4ckConfig': 'FutureGUIPluginConfig.json'
+        )
+    }
+    finalizedBy(copyJar)
+}
