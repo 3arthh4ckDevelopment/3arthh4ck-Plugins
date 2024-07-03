@@ -36,6 +36,11 @@ minecraft {
 repositories {
     mavenCentral()
     maven {
+        name = 'spongepowered-repo'
+        url = 'https://repo.spongepowered.org/maven/'
+    }
+
+    maven {
         name = "jitpack.io"
         url  = "https://jitpack.io"
     }

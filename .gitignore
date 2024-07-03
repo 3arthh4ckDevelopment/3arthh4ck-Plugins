@@ -14,14 +14,13 @@
 /.idea/
 
 # gradle
-/run/
-/build/
-.gradle
+*/build/
+*/.gradle/
 
 # other
 /runtime/
 eclipse
-run
+*/run/
 *.bak
 
 # Files from Forge MDK

@@ -12,7 +12,6 @@ import me.earth.earthhack.api.setting.settings.NumberSetting;
 import me.earth.earthhack.impl.event.events.network.PacketEvent;
 import me.earth.earthhack.impl.event.listeners.LambdaListener;
 import me.earth.earthhack.impl.modules.Caches;
-import me.earth.earthhack.impl.modules.combat.autothirtytwok.Auto32k;
 import me.earth.earthhack.impl.util.client.SimpleData;
 import me.earth.earthhack.impl.util.math.StopWatch;
 import net.minecraft.entity.EntityLivingBase;
@@ -55,7 +54,7 @@ public class PhobosCriticals extends Module {
             CPacketUseEntity packet;
             if (PHOBO_AUTO_32K.isEnabled() && (PHOBO_AUTO_32K.get().switching || !PHOBO_AUTO_32K.get().autoSwitch.getValue() || PHOBO_AUTO_32K.get().mode.getValue() == EarthAuto32k.Mode.DISPENSER) && timer.passed(500L) && cancelFirst.getValue()) {
                 firstCanceled = true;
-            } else if (!PHOBO_AUTO_32K.isEnabled() || !Auto32k.getInstance().switching && PHOBO_AUTO_32K.get().autoSwitch.getValue() && PHOBO_AUTO_32K.get().mode.getValue() != EarthAuto32k.Mode.DISPENSER || !cancelFirst.getValue()) {
+            } else if (!PHOBO_AUTO_32K.isEnabled() || !EarthAuto32k.getInstance().switching && PHOBO_AUTO_32K.get().autoSwitch.getValue() && PHOBO_AUTO_32K.get().mode.getValue() != EarthAuto32k.Mode.DISPENSER || !cancelFirst.getValue()) {
                 firstCanceled = false;
             }
             if (event.getPacket() instanceof CPacketUseEntity && (packet = (CPacketUseEntity) event.getPacket()).getAction() == CPacketUseEntity.Action.ATTACK) {
