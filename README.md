@@ -14,3 +14,5 @@
 1. Download the plugin from the [releases page](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/releases)
 2. Place the plugin in the `.minecraft/earthhack/plugins` folder
 3. Restart the game
+
+### [Go to 1.13+ plugins](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/tree/1.13%2B)
