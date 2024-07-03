@@ -1,0 +1,13 @@
+name: Build All
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        version:
+          dir: [Auto32k, AutoCat, FutureGui, HitboxDesync, MioClientGui, PhobosGui]
+    uses: 3arthh4ckDevelopment/3arthh4ck-Plugins/.github/workflows/build-plugin.yml@main
+    with:
+      dir: ${{ matrix.version.dir }}

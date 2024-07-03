@@ -1,0 +1,30 @@
+name: Gradle Build
+
+on:
+  workflow_call:
+    inputs:
+      dir:
+        required: true
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java 8
+        uses: actions/setup-java@v4
+        with:
+          java-version: 8
+          distribution: corretto
+      - name: Grant execute permission for gradlew
+        working-directory: ./${{ inputs.dir }}
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        working-directory: ./${{ inputs.dir }}
+        run: ./gradlew build
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.dir }}-Plugin
+          path: ./${{ inputs.dir }}/libs/*.jar
