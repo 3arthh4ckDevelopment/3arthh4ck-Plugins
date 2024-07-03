@@ -13,6 +13,6 @@ jobs:
           - { dir: HitboxDesync}
           - { dir: MioClientGui}
           - { dir: PhobosGui}
-    uses: 3arthh4ckDevelopment/3arthh4ck-Plugins/.github/workflows/build-plugin.yml@main
+    uses: 3arthh4ckDevelopment/3arthh4ck-Plugins/.github/workflows/build-plugin.yml@1.12.2
     with:
       dir: ${{ matrix.version.dir }}
