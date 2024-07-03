@@ -7,7 +7,12 @@ jobs:
     strategy:
       matrix:
         version:
-          dir: [Auto32k, AutoCat, FutureGui, HitboxDesync, MioClientGui, PhobosGui]
+          - { dir: Auto32k}
+          - { dir: AutoCat}
+          - { dir: FutureGui}
+          - { dir: HitboxDesync}
+          - { dir: MioClientGui}
+          - { dir: PhobosGui}
     uses: 3arthh4ckDevelopment/3arthh4ck-Plugins/.github/workflows/build-plugin.yml@main
     with:
       dir: ${{ matrix.version.dir }}
