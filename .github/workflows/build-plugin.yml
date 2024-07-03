@@ -24,7 +24,7 @@ jobs:
         working-directory: ./${{ inputs.dir }}
         run: ./gradlew build
       - name: Upload a Build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.dir }}-Plugin
-          path: ./${{ inputs.dir }}/libs/*.jar
+          path: ./${{ inputs.dir }}/build/libs/*.jar
