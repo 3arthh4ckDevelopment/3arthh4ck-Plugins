@@ -12,7 +12,7 @@
   ## Images
   
   ![3arthhack with the FutureGui Plugin](https://media.discordapp.net/attachments/1097210568575819987/1115888227845423135/image1.jpg?width=1179&height=663)
-  ![Future Client and FutureGui Plugin comparison](https://media.discordapp.net/attachments/1097210568575819987/1115888228281626654/image2.jpg?width=1179&height=663)
+  ![Future Client and FutureGui Plugin comparison](docs/assets/futureclientguicomp.png)
   
   ## Usage
   
@@ -42,7 +42,7 @@
   
   ## Images
   
-  ![3arthhack with the PhobosGui Plugin](https://media.discordapp.net/attachments/1102373040861491272/1117052249894555678/2023-06-10_13.18.52.png?width=777&height=675)
+  ![3arthhack with the PhobosGui Plugin](docs/assets/phobosgui.png)
   ## Usage
   
   - Load it into 3arthh4ck and click the module
@@ -66,7 +66,7 @@
   
   ## Images
   
-  ![Cool cat](https://media.discordapp.net/attachments/1047860003899457657/1114997507215347712/azumanga-daioh-azumanga.gif?width=704&height=525)
+  ![Cool cat](docs/assets/azumanga-daioh-azumanga.gif)
   
   ## Usage
   
@@ -83,7 +83,7 @@
   
   ## Description
   
-  This plugin adds a lot of the 32k modules from [Guinness Client](https://github.com/The-Gopro336-Archive/Guinness-Deobf/) and the Phobos 32k Criticals module
+  This plugin adds a lot of the 32k modules from [Guinness Client [FORK]](https://github.com/KuroHere/Guinness-Deobf) and the Phobos 32k Criticals module
   
   ## Usage
   
@@ -100,7 +100,7 @@
   
   The plugin was developed by [@Ai2473](https://github.com/Ai2473). Idea by [@Zane2b2t](https://github.com/Zane2b2t)
   
-  Thanks to [@Gopro336](https://github.com/Gopro336-2) for the Guinness 1.12.2 client https://github.com/The-Gopro336-Archive/Guinness-Deobf/
+  Thanks to [@Gopro336](https://github.com/Gopro336-2) for the Guinness 1.12.2 client [Guinness Client [FORK]](https://github.com/KuroHere/Guinness-Deobf)
 </details>
 
 <details>
@@ -112,7 +112,7 @@
   
   ## Images
   
-  ![img.png](img.png)
+  ![img.png](docs/assets/autocat-example.png)
   
   ## Credits and Author
   
@@ -128,8 +128,8 @@
   
   ## Images
   
-  ![Mio ClickGui in 3arthh4ck](https://media.discordapp.net/attachments/1075415497136406628/1162128317433008149/image.png?ex=65567ed6&is=654409d6&hm=e141158b6a68d5d00f894672a5fa10932e23baf9e014133b89cdc1800a984e2f&=&width=1606&height=903)
-  ![An other picture taken using the future mode](https://media.discordapp.net/attachments/1075415497136406628/1170052157878309015/image.png?ex=6557a2fc&is=65452dfc&hm=13799f0a73237224415ea39827208449c29c36e1ea7ff67f15cf3708888a4964&=&width=1606&height=903)
+  ![Mio ClickGui in 3arthh4ck](docs/assets/mioclientgui2.png)
+  ![An other picture taken using the future mode](docs/assets/mioclientgui1.png)
   ## Usage
   
   - Just load it into 3arthh4ck and click the module. 
