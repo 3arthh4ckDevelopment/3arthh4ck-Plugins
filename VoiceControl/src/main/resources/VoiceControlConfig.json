@@ -1,0 +1,6 @@
+{
+  "name": "VoiceControl",
+  "mainClass": "me.ai24.voicecontrol.VoiceControl",
+  "mixinConfig": null,
+  "accessWidener": null
+}

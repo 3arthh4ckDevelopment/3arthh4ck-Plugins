@@ -1,0 +1,64 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id "com.github.johnrengelman.shadow" version "8.1.1"
+}
+
+version = project.plugin_version
+archivesBaseName = project.plugin_name
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "jitpack.io"
+        url  = "https://jitpack.io"
+    }
+    maven {
+        name = "sonatype"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+    }
+}
+
+configurations {
+    implementation.extendsFrom(library)
+    shadow.extendsFrom(library)
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    compileOnly('com.github.3arthh4ckDevelopment:3arthh4ck-Fabric:main-SNAPSHOT:all')
+    library group: 'edu.cmu.sphinx', name: 'sphinx4-core', version:'5prealpha-SNAPSHOT'
+    library group: 'edu.cmu.sphinx', name: 'sphinx4-data', version:'5prealpha-SNAPSHOT'
+}
+
+processResources {
+    inputs.property "version", project.plugin_version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.plugin_version
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadow]
+
+    dependencies {
+        include(dependency('edu.cmu.sphinx:sphinx4-core:5prealpha-SNAPSHOT'))
+        include(dependency('edu.cmu.sphinx:sphinx4-data:5prealpha-SNAPSHOT'))
+    }
+}
+
+remapJar {
+    dependsOn shadowJar
+    inputFile.set(shadowJar.archiveFile)
+}
+
+jar {
+    manifest {
+        attributes(
+            '3arthh4ckConfig': "${project.plugin_name}Config.json"
+        )
+    }
+}

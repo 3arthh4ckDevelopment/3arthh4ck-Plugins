@@ -1,0 +1,23 @@
+#JSGF V1.0;
+
+grammar dialog;
+
+<module> = auto crystal   |
+           crystal aura   |
+           kill aura      |
+           surround       |
+           auto trap      |
+           self trap      |
+           hole filler    |
+           burrow         |
+           block lag      |
+           offhand        |
+           g u i          |
+           click g u i    |
+           hud            |
+           speed          |
+           step           |
+           strafe         |
+           scaffold       ;
+
+public <command> = phobos (toggle <module> | enable <module> | disable <module>);

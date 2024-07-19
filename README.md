@@ -34,6 +34,36 @@ The plugin was developed by [@Ai2473](https://github.com/Ai2473) and [@Gentleman
 Thanks to [@Gopro336](https://github.com/Gopro336-2) for the Exeter 1.12.2 client https://github.com/The-Gopro336-Archive/Exeter-1.12.2
 </details>
 
+<details>
+<summary> <b>VoiceControl</b>: Control the client using your voice </summary>
+
+## Description
+
+Enable and disable modules using your voice
+
+Available commands:
+- `enable` or `disable` followed by the module name
+- `toggle` followed by the module name
+
+## Usage
+
+- Say `phobos enable autocrystal` to enable the AutoCrystal module
+- Say `phobos disable surround` to disable the Surround module
+- Say `phobos toggle blocklag` to toggle the KillAura module
+
+## Todo
+
+- Would be cool to completely control the whole client with your voice
+- Make prefix changeable during runtime
+- Maybe more languages
+
+## Credits and Author
+
+The plugin was developed by [@Ai2473](https://github.com/Ai2473).
+
+Library used for the voice to text conversion: https://github.com/cmusphinx/sphinx4
+</details>
+
 ## Installation
 1. Download the plugin from the [releases page](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/releases)
 2. Place the plugin in the `.minecraft/earthhack/plugins` folder
