@@ -1,0 +1,38 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+}
+
+version = project.plugin_version
+archivesBaseName = project.plugin_name
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "jitpack.io"
+        url  = "https://jitpack.io"
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    compileOnly('com.github.3arthh4ckDevelopment:3arthh4ck-Fabric:main-SNAPSHOT:all')
+}
+
+processResources {
+    inputs.property "version", project.plugin_version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.plugin_version
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            '3arthh4ckConfig': "${project.plugin_name}Config.json"
+        )
+    }
+}

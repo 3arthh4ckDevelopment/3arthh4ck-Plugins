@@ -22,11 +22,3 @@
 eclipse
 */run/
 *.bak
-
-# Files from Forge MDK
-forge*changelog.txt
-
-# version files
-/HeadlessMC/
-/logs/
-/plugins/

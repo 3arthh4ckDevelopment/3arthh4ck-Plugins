@@ -9,6 +9,7 @@ jobs:
         version:
           - { dir: FutureGui }
           - { dir: VoiceControl }
+          - { dir: Lawnmower }
     uses: 3arthh4ckDevelopment/3arthh4ck-Plugins/.github/workflows/build-plugin.yml@1.13+
     with:
       dir: ${{ matrix.version.dir }}

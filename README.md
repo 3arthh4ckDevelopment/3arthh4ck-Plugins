@@ -64,6 +64,25 @@ The plugin was developed by [@Ai2473](https://github.com/Ai2473).
 Library used for the voice to text conversion: https://github.com/cmusphinx/sphinx4
 </details>
 
+<details>
+<summary> <b>Lawnmower</b>: Mow the lawn </summary>
+
+## Description
+
+Automatically breaks grass and flowers
+
+## Usage
+
+- Enable the module
+
+## Credits and Author
+
+The plugin was developed by [@Ai2473](https://github.com/Ai2473).
+This is a rewrite of the 1.12.2 Lawnmower plugin by [@3arthqu4ke](https://github.com/3arthqu4ke/3arthh4ck/tree/plugins/lawnmower)
+
+
+</details>
+
 ## Installation
 1. Download the plugin from the [releases page](https://github.com/3arthh4ckDevelopment/3arthh4ck-Plugins/releases)
 2. Place the plugin in the `.minecraft/earthhack/plugins` folder
