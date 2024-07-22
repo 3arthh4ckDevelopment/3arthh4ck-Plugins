@@ -1,0 +1,6 @@
+{
+  "name": "CrystalAuraPlugin",
+  "mainClass": "me.earth.crystalauraplugin.CrystalAuraPlugin",
+  "mixinConfig": "mixins.crystalauraplugin.json",
+  "accessWidener": "crystalauraplugin.accesswidener"
+}

@@ -1,0 +1,41 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+}
+
+version = project.plugin_version
+archivesBaseName = project.plugin_name
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "jitpack.io"
+        url  = "https://jitpack.io"
+    }
+}
+
+loom { accessWidenerPath = file("src/main/resources/${project.plugin_id}.accesswidener") }
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    compileOnly('com.github.3arthh4ckDevelopment:3arthh4ck-Fabric:9b08618999:all')
+}
+
+processResources {
+    inputs.property "version", project.plugin_version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.plugin_version
+    }
+}
+
+jar {
+    manifest {
+        attributes(
+            'MixinConfigs': "mixins.${project.plugin_id}.json",
+            '3arthh4ckConfig': "${project.plugin_name}Config.json"
+        )
+    }
+}

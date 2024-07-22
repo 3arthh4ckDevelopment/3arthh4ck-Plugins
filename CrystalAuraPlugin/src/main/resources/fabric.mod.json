@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "id": "crystalauraplugin",
+  "version": "${version}",
+  "accessWidener": "crystalauraplugin.accesswidener",
+  "description": "THIS FILE IS FOR LOOM ONLY. DO NOT ADD FIELDS."
+}
