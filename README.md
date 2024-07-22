@@ -12,8 +12,8 @@ The new Future Gui, but in 3arthh4ck
 
 ## Images
 
-![FutureGui Plugin clickgui](docs/assets/futureclientgui1.20-1.png)
-![Future Client and FutureGui Plugin comparison](docs/assets/futureclientgui1.20-2.png)
+![FutureGui Plugin clickgui](.github/docs/assets/futureclientgui1.20-1.png)
+![Future Client and FutureGui Plugin comparison](.github/docs/assets/futureclientgui1.20-2.png)
 
 ## Usage
 
