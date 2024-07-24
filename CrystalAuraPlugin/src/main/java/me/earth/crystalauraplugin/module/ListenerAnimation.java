@@ -2,17 +2,21 @@ package me.earth.crystalauraplugin.module;
 
 import me.earth.earthhack.impl.event.events.network.PacketEvent;
 import me.earth.earthhack.impl.event.listeners.ModuleListener;
+import net.minecraft.item.AxeItem;
+import net.minecraft.item.EndCrystalItem;
+import net.minecraft.item.SwordItem;
+import net.minecraft.network.packet.s2c.play.EntityAnimationS2CPacket;
 
 final class ListenerAnimation
-        extends ModuleListener<CrystalAura, PacketEvent.Receive<SPacketAnimation>> {
+        extends ModuleListener<CrystalAura, PacketEvent.Receive<EntityAnimationS2CPacket>> {
     public ListenerAnimation(CrystalAura module) {
-        super(module, PacketEvent.Receive.class, SPacketAnimation.class);
+        super(module, PacketEvent.Receive.class, EntityAnimationS2CPacket.class);
     }
 
     @Override
-    public void invoke(PacketEvent.Receive<SPacketAnimation> event) {
-        SPacketAnimation packet;
-        if (this.module.noParticles.getValue().booleanValue() && (packet = event.getPacket()).getAnimationType() == 5 && (ListenerAnimation.mc.player.getHeldItemMainhand().getItem() instanceof ItemAxe || ListenerAnimation.mc.player.getHeldItemMainhand().getItem() instanceof ItemSword) && ListenerAnimation.mc.player.getOffHandStack().getItem() instanceof ItemEndCrystal && !this.module.getBreakTimer().passed(500L)) {
+    public void invoke(PacketEvent.Receive<EntityAnimationS2CPacket> event) {
+        EntityAnimationS2CPacket packet;
+        if (this.module.noParticles.getValue().booleanValue() && (packet = event.getPacket()).getAnimationId() == 5 && (ListenerAnimation.mc.player.getMainHandStack().getItem() instanceof AxeItem || ListenerAnimation.mc.player.getMainHandStack().getItem() instanceof SwordItem) && ListenerAnimation.mc.player.getOffHandStack().getItem() instanceof EndCrystalItem && !this.module.getBreakTimer().passed(500L)) {
             event.setCancelled(true);
         }
     }

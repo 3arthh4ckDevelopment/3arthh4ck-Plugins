@@ -176,7 +176,7 @@ public class PlayerUtil implements Globals {
 
     public static boolean isValidFootCrystal(Entity crystal, PlayerEntity player) {
         Box bb = player.getBoundingBox().contract(0.0, 1.0, 0.0).expand(2.0, 0.0, 2.0).expand(-2.0, 0.0, -2.0);
-        return PlayerUtil.mc.world.getEntitiesWithinAABB(Entity.class, bb).contains(crystal) && player.isOnGround();
+        return PlayerUtil.mc.world.getEntitiesByClass(Entity.class, bb, e -> true).contains(crystal) && player.isOnGround();
     }
 
     public static boolean isInHole(PlayerEntity player) {
@@ -198,7 +198,7 @@ public class PlayerUtil implements Globals {
         for (Direction face : BlockUtil.getHorizontal()) {
             BlockPos off = pos.offset(face);
             Box bb = PlayerUtil.mc.world.getBlockState(off).getCollisionShape(PlayerUtil.mc.world, off).getBoundingBox();
-            if (!PlayerUtil.mc.world.getEntitiesWithinAABB(Entity.class, bb).contains(player)) continue;
+            if (!PlayerUtil.mc.world.getEntitiesByClass(Entity.class, bb, e -> true).contains(player)) continue;
             return face;
         }
         return null;

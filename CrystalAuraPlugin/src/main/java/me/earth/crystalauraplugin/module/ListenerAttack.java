@@ -6,18 +6,19 @@ import me.earth.earthhack.impl.event.listeners.ModuleListener;
 import me.earth.earthhack.impl.managers.Managers;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
+import net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 
 final class ListenerAttack
-        extends ModuleListener<CrystalAura, PacketEvent.Post<CPacketUseEntity>> {
+        extends ModuleListener<CrystalAura, PacketEvent.Post<PlayerInteractEntityC2SPacket>> {
     public ListenerAttack(CrystalAura module) {
-        super(module, PacketEvent.Post.class, CPacketUseEntity.class);
+        super(module, PacketEvent.Post.class, PlayerInteractEntityC2SPacket.class);
     }
 
     @Override
-    public void invoke(PacketEvent.Post<CPacketUseEntity> event) {
+    public void invoke(PacketEvent.Post<PlayerInteractEntityC2SPacket> event) {
         if (event.getPacket().getAction() == CPacketUseEntity.Action.ATTACK && !this.module.isPingBypass()) {
             ICPacketUseEntity packet = (ICPacketUseEntity) event.getPacket();
             this.module.attacked.add(packet.getEntityID());

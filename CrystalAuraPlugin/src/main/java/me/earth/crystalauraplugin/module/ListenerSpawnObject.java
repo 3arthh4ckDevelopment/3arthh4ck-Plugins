@@ -11,6 +11,7 @@ import me.earth.earthhack.impl.util.minecraft.entity.EntityUtil;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
+import net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
@@ -39,8 +40,8 @@ final class ListenerSpawnObject
 
     private void attack(EntitySpawnS2CPacket packetIn, int delay) {
         if (this.module.getBreakTimer().passed(delay)) {
-            ICPacketUseEntity useEntity = (ICPacketUseEntity) new CPacketUseEntity();
-            useEntity.setAction(CPacketUseEntity.Action.ATTACK);
+            IPlayerInteractEntityC2SPacket useEntity = (IPlayerInteractEntityC2SPacket) new PlayerInteractEntityC2SPacket();
+            useEntity.setAction(PlayerInteractEntityC2SPacket.Action.ATTACK);
             useEntity.setEntityId(packetIn.getId());
             ListenerSpawnObject.mc.player.networkHandler.sendPacket((Packet) useEntity);
             ListenerSpawnObject.mc.player.networkHandler.sendPacket(new HandSwingC2SPacket(Hand.MAIN_HAND));

@@ -299,7 +299,7 @@ public class CrystalAura
     }
 
     protected boolean shouldFacePlace() {
-        return this.holdFP.getValue() && mc.mouse.wasLeftButtonClicked() && !CrystalAura.mc.playerController.getIsHittingBlock() && !(CrystalAura.mc.player.getMainHandStack().getItem() instanceof PickaxeItem) && !(CrystalAura.mc.currentScreen instanceof GenericContainerScreen);
+        return this.holdFP.getValue() && mc.mouse.wasLeftButtonClicked() && !mc.interactionManager.isBreakingBlock() && !(CrystalAura.mc.player.getMainHandStack().getItem() instanceof PickaxeItem) && !(CrystalAura.mc.currentScreen instanceof GenericContainerScreen);
     }
 
     protected void checkKilled() {
@@ -311,10 +311,10 @@ public class CrystalAura
                 }
                 if (System.nanoTime() - entry.getValue().getTime() <= 500000000L) continue;
                 Entity entity = entry.getValue().getEntity();
-                entity.isDead = false;
+                //entity.isDead = false;
                 if (Managers.ENTITIES.getEntities().contains(entity)) continue;
                 CrystalAura.mc.world.addEntity(entity);
-                entity.isDead = false;
+                //entity.isDead = false;
                 this.killed.remove(entry.getKey());
             }
         }

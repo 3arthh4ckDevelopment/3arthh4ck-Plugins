@@ -18,6 +18,7 @@ import me.earth.earthhack.impl.util.minecraft.InventoryUtil;
 import me.earth.earthhack.impl.util.minecraft.blocks.BlockUtil;
 import me.earth.earthhack.impl.util.minecraft.entity.EntityUtil;
 import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 
 final class ListenerMotion
         extends ModuleListener<CrystalAura, MotionUpdateEvent> {
@@ -86,7 +87,7 @@ final class ListenerMotion
                     this.module.setTarget(calc.getTarget());
                 }
                 for (Packet<?> packet : calc.getPackets()) {
-                    if (packet instanceof CPacketPlayerTryUseItemOnBlock) {
+                    if (packet instanceof PlayerInteractBlockC2SPacket) {
                         InventoryUtil.syncItem();
                     }
                     ListenerMotion.mc.player.networkHandler.sendPacket(packet);

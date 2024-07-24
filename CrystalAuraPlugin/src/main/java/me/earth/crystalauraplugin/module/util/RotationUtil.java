@@ -15,14 +15,14 @@ import net.minecraft.util.math.*;
 public class RotationUtil
         implements Globals {
     public static float[] getRotations(BlockPos pos, Direction facing) {
-        Box bb = RotationUtil.mc.world.getBlockState(pos).getBoundingBox(RotationUtil.mc.world, pos);
+        Box bb = RotationUtil.mc.world.getBlockState(pos).getCollisionShape(RotationUtil.mc.world, pos).getBoundingBox();
         double x = (double) pos.getX() + (bb.minX + bb.maxX) / 2.0;
         double y = (double) pos.getY() + (bb.minY + bb.maxY) / 2.0;
         double z = (double) pos.getZ() + (bb.minZ + bb.maxZ) / 2.0;
         if (facing != null) {
-            x += (double) facing.getDirectionVec().getX() * ((bb.minX + bb.maxX) / 2.0);
-            y += (double) facing.getDirectionVec().getY() * ((bb.minY + bb.maxY) / 2.0);
-            z += (double) facing.getDirectionVec().getZ() * ((bb.minZ + bb.maxZ) / 2.0);
+            x += (double) facing.getOffsetX() * ((bb.minX + bb.maxX) / 2.0);
+            y += (double) facing.getOffsetY() * ((bb.minY + bb.maxY) / 2.0);
+            z += (double) facing.getOffsetZ() * ((bb.minZ + bb.maxZ) / 2.0);
         }
         return RotationUtil.getRotations(x, y, z);
     }

@@ -20,7 +20,7 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    compileOnly('com.github.3arthh4ckDevelopment:3arthh4ck-Fabric:9b08618999:all')
+    compileOnly('com.github.3arthh4ckDevelopment:3arthh4ck-Fabric:main-SNAPSHOT:all')
 }
 
 processResources {

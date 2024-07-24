@@ -17,12 +17,15 @@ import me.earth.earthhack.impl.util.minecraft.InventoryUtil;
 import me.earth.earthhack.impl.util.minecraft.blocks.BlockUtil;
 import me.earth.earthhack.impl.util.minecraft.entity.EntityUtil;
 import me.earth.earthhack.impl.util.misc.Wrapper;
+import me.earth.earthhack.impl.util.network.NetworkUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.decoration.EndCrystalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.c2s.play.HandSwingC2SPacket;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
+import net.minecraft.network.packet.c2s.play.PlayerInteractEntityC2SPacket;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -114,7 +117,7 @@ final class Calculation
             block18:
             {
                 HandSwingC2SPacket animation;
-                CPacketUseEntity useEntity;
+                PlayerInteractEntityC2SPacket useEntity;
                 block16:
                 {
                     block17:
@@ -131,7 +134,7 @@ final class Calculation
                                 if (!this.value.explode.getValue().booleanValue() || crystal == null || !this.value.attack.getValue().shouldAttack() || !this.value.getBreakTimer().passed(delay))
                                     break block13;
                                 mc.execute(() -> this.value.setCurrentCrystal(crystal));
-                                useEntity = new CPacketUseEntity(crystal);
+                                useEntity = new PlayerInteractEntityC2SPacket(crystal);
                                 animation = new HandSwingC2SPacket(Hand.MAIN_HAND);
                                 this.value.getBreakTimer().reset(delay);
                                 this.attacking = true;
@@ -204,24 +207,32 @@ final class Calculation
                     result = RayTraceUtil.getBlockHitResult(this.rotations[0], this.rotations[1], this.value.placeRange.getValue().floatValue());
                 }
             } else {
-                result = new HitResult(new Vec3d(0.5, 1.0, 0.5));
+                result = new BlockHitResult(new Vec3d(0.5, 1.0, 0.5), Direction.UP, data.getPos(), false);
             }
             if (data.getDamage() < this.value.minDamage.getValue().floatValue() && this.value.shouldFacePlace()) {
                 this.value.slow.add(this.pos.up());
             }
-            CPacketPlayerTryUseItemOnBlock place = new CPacketPlayerTryUseItemOnBlock(this.pos, result.getSide(), this.getHand(), (float) result.getPos().x, (float) result.getPos().y, (float) result.getPos().z);
+            BlockHitResult hitResult = new BlockHitResult(new Vec3d((float) result.getPos().x, (float) result.getPos().y, (float) result.getPos().z), result.getSide(), this.pos, false);
             HandSwingC2SPacket animation = new HandSwingC2SPacket(this.getHand());
             this.value.getPlaceTimer().reset(this.value.placeDelay.getValue().intValue());
             this.value.getPositions().add(this.pos.up());
             if ((this.value.rotate.getValue().noRotate(Rotate.Place) || RotationUtil.isLegit(this.pos)) && this.packets.isEmpty()) {
                 InventoryUtil.syncItem();
-                Calculation.mc.player.networkHandler.sendPacket(place);
+                NetworkUtil.sendSequenced(sequence -> new PlayerInteractBlockC2SPacket(this.getHand(), hitResult, sequence));
                 Calculation.mc.player.networkHandler.sendPacket(animation);
             } else if (this.value.useForPlace.getValue().booleanValue() && RotationUtil.isLegit(this.pos)) {
-                this.packets.add(place);
+                NetworkUtil.sendSequenced(sequence -> {
+                    PlayerInteractBlockC2SPacket place =  new PlayerInteractBlockC2SPacket(this.getHand(), hitResult, sequence);
+                    this.packets.add(place);
+                    return place;
+                });
                 this.packets.add(animation);
             } else if (!this.value.useForPlace.getValue().booleanValue()) {
-                this.packets.add(place);
+                NetworkUtil.sendSequenced(sequence -> {
+                    PlayerInteractBlockC2SPacket place =  new PlayerInteractBlockC2SPacket(this.getHand(), hitResult, sequence);
+                    this.packets.add(place);
+                    return place;
+                });
                 this.packets.add(animation);
             }
             this.setRenderPos(data);
@@ -237,7 +248,7 @@ final class Calculation
             };
             mc.execute(() -> {
                 this.value.postRunnable = runnable;
-                return this.value.postRunnable;
+                // return this.value.postRunnable;
             });
         }
     }
